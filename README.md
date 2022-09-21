@@ -10,6 +10,9 @@
 5. Selanjutnya, jalankan aplikasi dengan command `python run.py` untuk proses running aplikasi
 8. Buka aplikasi di alamat localhost `http://127.0.0.1:5000/`di web browser.
 
+# Model & Dataset
+Untuk file python pemodelan `LSTM` ada di forder `model` dan dataset berada di forder `dataset`. 
+
 # Screenshots
  <img src="https://github.com/umarulkhak/edomphb-lstm/blob/main/ss/Picture1.png"> <img src="https://github.com/umarulkhak/edomphb-lstm/blob/main/ss/Picture2.png">
 
