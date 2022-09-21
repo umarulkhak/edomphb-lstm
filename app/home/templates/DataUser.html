@@ -1,0 +1,54 @@
+{% extends "base-site.html" %} {% block title %} Data User {% endblock %} {%
+block content %}
+
+<div class="my-3 my-md-5">
+  <div class="container">
+    <!-- Body -->
+    <form class="card" action="" method="post">
+      <div class="card-header">
+        <h3 class="card-title">Data User</h3>
+        <div class="card-options">
+          <a href="/Data" class="btn btn-yellow btn-sm"
+            ><i class="fe fe-arrow-left"></i> Kembali</a
+          >
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <table class="table card-table table-striped table-vcenter">
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>NIM</th>
+                <th>NAMA</th>
+                <th>Semester</th>
+                <th>Kelas</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for user in user %}
+                <td>{{ loop.index }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.nama }}</td>
+                <td>{{ user.semester }}</td>
+                <td>{{ user.kelas }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                  <span
+                    ><a class="btn btn-outline-dark" href="/{{user.id}}/delete">
+                      <i class="fe fe-trash-2"></i></a
+                  ></span>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base-site.html" %} {% block title %} Mata Kuliah {% endblock %} {%
+block content %}
+
+<div class="my-3 my-md-5">
+  <div class="container">
+    <!-- Body -->
+    <form
+      class="card"
+      action="/Maktul"
+      method="post"
+      enctype="multipart/form-data"
+      class="m-4"
+    >
+      <div class="card-header">
+        <h3 class="card-title">Form Input Mata Kuliah</h3>
+        <div class="card-options">
+          <a href="/Data" class="btn btn-teal btn-sm"
+            ><i class="fe fe-arrow-left"></i> Kembali</a
+          >
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="form-label">Semester</label>
+              <select class="form-control form-control" name="semester">
+                <option>Pilih</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+              <label class="form-label">Mata Kuliah</label>
+              <input type="text" class="form-control" name="matakuliah" />
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="form-group">
+              <label class="form-label">Dosen Pengampu</label>
+              <input type="text" class="form-control" name="dosenpengampu" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer text-right">
+        <button type="submit" name="save" class="btn btn-dark">
+          <i class="fa fa-floppy-o"></i> Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

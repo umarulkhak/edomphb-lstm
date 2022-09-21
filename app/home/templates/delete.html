@@ -1,0 +1,22 @@
+{% extends "base-site.html" %} {% block title %} Data {% endblock %} {% block
+content %}
+<div class="my-3 my-md-5">
+  <div class="container">
+    <form action="" method="post">
+      <div class="col-md-6 col-xl-4">
+        <div class="card">
+          <div class="card-status bg-danger"></div>
+          <div class="card-header">
+            <h3 class="card-title">Click YES to confirm</h3>
+            <div class="card-options">
+                <input type="submit" value="YES" class="btn btn-danger">
+                <a href="/DataEdom">Cancel</a>
+                </a>
+              </div>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock %}

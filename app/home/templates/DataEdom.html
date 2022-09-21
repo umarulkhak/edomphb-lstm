@@ -1,0 +1,53 @@
+{% extends "base-site.html" %} {% block title %} Data EDOM {% endblock %} {%
+block content %}
+
+<div class="my-3 my-md-5">
+  <div class="container">
+    <!-- Body -->
+    <form class="card" action="" method="post">
+      <div class="card-header">
+        <h3 class="card-title">Data EDOM</h3>
+        <div class="card-options">
+          <a href="/Data" class="btn btn-purple btn-sm"
+            ><i class="fe fe-arrow-left"></i> Kembali</a
+          >
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <table class="table card-table table-striped table-vcenter">
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>NAMA DOSEN</th>
+                <th>REVIEW</th>
+                <th>KATEGORI</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for edom in edom %}
+                <td>{{ loop.index }}</td>
+                <td>{{ edom.nama }}</td>
+                <td>{{ edom.review }}</td>
+                <td>{{ edom.sentiment }}</td>
+                <td>
+                  <span
+                    ><a
+                      class="btn btn-outline-dark"
+                      href="/{{edom.id}}/deleteedom"
+                    >
+                      <i class="fe fe-trash-2"></i></a
+                  ></span>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,448 @@
+{% extends "base-site.html" %} {% block title %} Dashboard {% endblock %} {%
+block content %}
+
+<div class="my-3 my-md-5">
+  <div class="container">
+    {% if current_user.nama != 'Administrator' %}
+    <div class="row">
+      <!-- INFROMASI MAHASISWA -->
+      <div class="col-md-6 col-xl-6">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">INFORMASI MAHASISWA</h2>
+            <div class="card-options">
+              <a href="" class="btn btn-success btn-sm">Aktif</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- NAMA -->
+            <h3 class="mb-3">{{ current_user.nama }}</h3>
+            <!-- NIM -->
+            <div class="row row-cols-2">
+              <div class="col">NIM</div>
+              <div class="col">: {{ current_user.username }}</div>
+            </div>
+            <!-- Semester -->
+            <div class="row row-cols-2">
+              <div class="col">Semester</div>
+              <div class="col">: {{ current_user.semester }}</div>
+            </div>
+            <!-- Kelas -->
+            <div class="row row-cols-2">
+              <div class="col">Kelas</div>
+              <div class="col">: {{ current_user.kelas }}</div>
+            </div>
+            <!-- Email -->
+            <div class="row row-cols-2">
+              <div class="col">Email</div>
+              <div class="col">: {{ current_user.email }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KALENDER AKADEMIK -->
+      <div class="col-md-6 col-xl-6">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">KALENDER AKADEMIK</h2>
+          </div>
+          <div class="card-body">
+            <h1 class="text-dark">2021/2022</h1>
+            <small>Semester Genap</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATA KULIAH -->
+      <div class="col-md-6 col-xl-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">MATA KULIAH SEMESTER INI</h2>
+            <div class="card-options">
+              <div class="d-flex align-items-center">
+                <span class="stamp stamp-md bg-orange mr-3">
+                  <i class="fa fa-calendar"></i>
+                </span>
+              </div>
+              <a class="text-dark" id="tanggalwaktu"></a>
+              <script>
+                var tw = new Date();
+                if (tw.getTimezoneOffset() == 0)
+                  a = tw.getTime() + 7 * 60 * 60 * 1000;
+                else a = tw.getTime();
+                tw.setTime(a);
+                var tahun = tw.getFullYear();
+                var hari = tw.getDay();
+                var bulan = tw.getMonth();
+                var tanggal = tw.getDate();
+                var hariarray = new Array(
+                  "Minggu,",
+                  "Senin,",
+                  "Selasa,",
+                  "Rabu,",
+                  "Kamis,",
+                  "Jum'at,",
+                  "Sabtu,"
+                );
+                var bulanarray = new Array(
+                  "Januari",
+                  "Februari",
+                  "Maret",
+                  "April",
+                  "Mei",
+                  "Juni",
+                  "Juli",
+                  "Agustus",
+                  "September",
+                  "Oktober",
+                  "Nopember",
+                  "Desember"
+                );
+                document.getElementById("tanggalwaktu").innerHTML =
+                  hariarray[hari] +
+                  " " +
+                  tanggal +
+                  " " +
+                  bulanarray[bulan] +
+                  " " +
+                  tahun;
+              </script>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <!-- MK semester 8 -->
+              {% if current_user.semester=='8' %}
+              <table class="table card-table table-striped table-vcenter">
+                <thead>
+                  <tr>
+                    <th>NO</th>
+                    <th>MATA KULIAH</th>
+                    <th>DOSEN PENGAMPU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>ETIKA PROFESI IT</td>
+                    <td>Dairoh, M.Sc.</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>TECHNOPRENEURSHIP</td>
+                    <td>Taufiq Abidin, M.Kom.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- MK semester 6 -->
+              {% elif current_user.semester=='6' %}
+              <table class="table card-table table-striped table-vcenter">
+                <thead>
+                  <tr>
+                    <th>NO</th>
+                    <th>MATA KULIAH</th>
+                    <th>DOSEN PENGAMPU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>MOBILE DEVELOPMENT</td>
+                    <td>Rosid Mustofa, M.Kom,</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>KEAMANAN DATA DAN JARINGAN</td>
+                    <td>Hendrawan Aprilia A, S.T.,</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>WEB SERVICE</td>
+                    <td>Aris Setyawan, S.T,</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>BIG DATA</td>
+                    <td>Riszki Wijayatun Pratiwi., M.CS.,</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>PENJAMINAN MUTU PERANGKAT LUNAK</td>
+                    <td>Sharfina Febbi Handayani, M.Kom.,</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>GAME DESIGN AND DEVELOPMENT</td>
+                    <td>Ardi Susanto, S.Kom., M.Cs.,</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>PEMROGRAMAN SISTEM CERDAS 2</td>
+                    <td>Mirza Alim Mutasodirin, M.Kom,</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>METODOLOGI PENELITIAN</td>
+                    <td>
+                      Dwi Intan Af'idah, M.Kom., & Ginanjar Wiro Sasmito,
+                      M.Kom.,
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- MK semester 4 -->
+              {% elif current_user.semester=='4' %}
+              <table class="table card-table table-striped table-vcenter">
+                <thead>
+                  <tr>
+                    <th>NO</th>
+                    <th>MATA KULIAH</th>
+                    <th>DOSEN PENGAMPU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>PEMROGRAMAN KOMPUTER 2</td>
+                    <td>M. Nishom, M.Kom.,</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>JARINGAN KOMPUTER 2</td>
+                    <td>Dega Surono Wibowo, S.T., M.Kom.,</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>PEMROGRAMAN WEB 2</td>
+                    <td>Priyanto Tamami, S.Kom.,</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>SISTEM BASIS DATA 2</td>
+                    <td>Taufiq Abidin, M.Kom.,</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>SISTEM PENDUKUNG KEPUTUSAN</td>
+                    <td>Dyah Apriliani, S.T., M.Kom.,</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>DATA MINING</td>
+                    <td>Hepatika Zidny Ilmadina, S.Pd., M.Kom.,</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>PENGANTAR KECERDASAN BUATAN</td>
+                    <td>Muhammad Fikri Hidayattullah, S.T., M.Kom.,</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- MK Semester 2 -->
+              {% elif current_user.semester=='2' %}
+              <table class="table card-table table-striped table-vcenter">
+                <thead>
+                  <tr>
+                    <th>NO</th>
+                    <th>MATA KULIAH</th>
+                    <th>DOSEN PENGAMPU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>INTERAKSI MANUSIA DAN KOMPUTER</td>
+                    <td>
+                      Ardi Susanto, S.Kom., M.Cs., & Dega Surono Wibowo, S.T.,
+                      M.Kom.,
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>ANALISIS DAN DESAIN PERANGKAT LUNAK</td>
+                    <td>Riszki Wijayatun Pratiwi., M.CS.,</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>MATEMATIKA DISKRIT</td>
+                    <td>Dairoh, M.Sc.,</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>ALJABAR LINEAR</td>
+                    <td>Slamet Wiyono, S.Pd., M.Eng,</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>E-COMMERCE</td>
+                    <td>Romi Muharyono, S.Ag.,</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>ALGORITMA DAN STRUKTUR DATA 2</td>
+                    <td>Ary Herijanto, S.Kom, MMSi,</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>PENGANTAR REKAYASA PERANGKAT LUNAK</td>
+                    <td>
+                      Dwi Intan Af'idah, M.Kom., & Sharfina Febbi Handayani,
+                      M.Kom.,
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>BAHASA INGGRIS 2</td>
+                    <td>MUCHAMMAD SOFYAN FIRMANSYAH, S.S, M.A.,</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>KEWARGANEGARAAN</td>
+                    <td>David Bani Adam, S.H, M.H,</td>
+                  </tr>
+                </tbody>
+              </table>
+              {% else %}
+              <span>Tidak Ada Informasi</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ADMIN -->
+    {% if current_user.nama == 'Administrator' %}
+    <div class="row">
+      <!-- INFROMASI-->
+      <div class="col-md-6 col-xl-6">
+        <div class="card">
+          <div class="card-header">
+            <div class="d-flex align-items-center">
+              <span class="stamp stamp-md bg-orange mr-3">
+                <i class="fa fa-bookmark"></i>
+              </span>
+            </div>
+            <h2 class="card-title">DIV TEKNIK INFROMATIKA</h2>
+          </div>
+          <div class="card-body">
+            <div class="card card-aside">
+              <a
+                href="#"
+                class="card-aside-column"
+                style="
+                  background-image: url(/static/assets/demo/photos/gedungd.jpg);
+                "
+              ></a>
+              <div class="card-body d-flex flex-column">
+                <h4>{{ current_user.nama }}</h4>
+                <div class="text-muted">
+                  Selamat datang di halamam administrator website Analysis
+                  Sentimen Evaluasi Dosen Oleh Mahasiswa Politeknik Harapan.
+                  Bersama
+                </div>
+                <div class="d-flex align-items-center pt-5 mt-auto">
+                  <div
+                    class="avatar avatar-md mr-3"
+                    style="
+                      background-image: url(/static/assets/demo/faces/male/user22.png);
+                    "
+                  ></div>
+                  <div>
+                    <a class="text-default">{{ current_user.email }}</a>
+                    <small class="d-block text-muted"
+                      >Politeknik Harapan Bersama</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KALENDER AKADEMIK -->
+      <div class="col-md-6 col-xl-6">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">KALENDER AKADEMIK</h2>
+          </div>
+          <div class="card-body">
+            <h1 class="text-dark">2021/2022</h1>
+            <small>Semester Genap</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATA KULIAH -->
+      <div class="col-md-6 col-xl-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">PAPAN INFROMASI</h2>
+            <div class="card-options">
+              <div class="d-flex align-items-center">
+                <span class="stamp stamp-md bg-yellow mr-3">
+                  <i class="fa fa-calendar"></i>
+                </span>
+              </div>
+              <a class="text-dark" id="tanggalwaktu"></a>
+              <script>
+                var tw = new Date();
+                if (tw.getTimezoneOffset() == 0)
+                  a = tw.getTime() + 7 * 60 * 60 * 1000;
+                else a = tw.getTime();
+                tw.setTime(a);
+                var tahun = tw.getFullYear();
+                var hari = tw.getDay();
+                var bulan = tw.getMonth();
+                var tanggal = tw.getDate();
+                var hariarray = new Array(
+                  "Minggu,",
+                  "Senin,",
+                  "Selasa,",
+                  "Rabu,",
+                  "Kamis,",
+                  "Jum'at,",
+                  "Sabtu,"
+                );
+                var bulanarray = new Array(
+                  "Januari",
+                  "Februari",
+                  "Maret",
+                  "April",
+                  "Mei",
+                  "Juni",
+                  "Juli",
+                  "Agustus",
+                  "September",
+                  "Oktober",
+                  "Nopember",
+                  "Desember"
+                );
+                document.getElementById("tanggalwaktu").innerHTML =
+                  hariarray[hari] +
+                  " " +
+                  tanggal +
+                  " " +
+                  bulanarray[bulan] +
+                  " " +
+                  tahun;
+              </script>
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <h4>Tidak Ada Informasi</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
