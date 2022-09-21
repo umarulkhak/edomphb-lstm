@@ -11,7 +11,7 @@
 8. Buka aplikasi di alamat localhost `http://127.0.0.1:5000/`di web browser.
 
 # Screenshots
- <img src="https://res.cloudinary.com/moyadev/image/upload/v1663465655/Moyadev/Xcode_18-09-2022_at_08.36_m6xkzs.gif"> <img src="https://res.cloudinary.com/moyadev/image/upload/v1663465860/Moyadev/1x-pika-1663465805817_r4brk3.png"> <img src="https://res.cloudinary.com/moyadev/image/upload/v1663465897/Moyadev/1x-pika-1663465835350_fsx6j2.png">
+ <img src="https://github.com/umarulkhak/edomphb-lstm/blob/main/ss/Picture1.png"> <img src="https://github.com/umarulkhak/edomphb-lstm/blob/main/ss/Picture2.png">
 
 # Prerequisites
 You will need [Python3 installed](https://www.python.org/downloads/) on your local machine.
